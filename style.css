@@ -13,3 +13,20 @@ background: white;
 main {
 background: white;
 }
+body {
+background: #f9e933;
+8
+}
+header, main, footer {
+min-я улица</p>width: 855px;
+}
+header .container, main .container, footer .container {
+max-width: 855px;
+margin: auto;
+}
+header {
+background: white;
+}
+main {
+background: white;
+}
