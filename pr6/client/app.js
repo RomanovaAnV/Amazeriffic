@@ -89,21 +89,25 @@ var main = function (toDoObjects) {
 					$tagInput = $("<input>").addClass("tags"),
 					$tagLabel = $("<p>").text("Тэги: "),
 					$button = $("<button>").text("+");
-				$button.on("click", function () {
-					var description = $input.val(),
-					// разделение в соответствии с запятыми
-					tags = $tagInput.val().split(","); 
-					toDoObjects.push({"description":description, "tags":tags}); 
-					$.post("todos",{},function(response){
-					console.log("Мы отправили данные и получили ответ от сервера");
-					console.log(response);
+					$button.on("click", function () {
+						var description = $input.val(),
+							tags = $tagInput.val().split(","),
+							// создаем новый элемент списка задач
+							newToDo = { "description": description, "tags": tags };
+						    $.post("todos", newToDo, function (result) {
+							console.log(result);
+							// нужно отправить новый объект на клиент
+							// после получения ответа сервера
+							toDoObjects.push(newToDo);
+							// обновляем toDos
+							toDos = toDoObjects.map(function (toDo) {
+								return toDo.description;
+							});
+							$input.val("");
+							$tagInput.val("");
+						});
 					});
-					toDos = toDoObjects.map(function (toDo) {
-						return toDo.description;
-					});
-					$input.val("");
-					$tagInput.val("");
-				});
+	
 				$("main .content").append($inputLabel).append($input).append($tagLabel).append($tagInput).append($button); 
 			}
 			else if ($element.parent().is(":nth-child(5)")) { 

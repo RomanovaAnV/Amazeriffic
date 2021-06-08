@@ -38,6 +38,10 @@ app.get("/todos.json", function (req, res) {
 });
 
 app.post("/todos", function (req, res) {
-    console.log("Данные были отправлены на сервер!");
+    // сейчас объект сохраняется в req.body
+    var newToDo = req.body;
+    console.log(newToDo);
+    toDos.push(newToDo);
+    // отправляем простой объект
     res.json({ "message": "Вы размещаетесь на сервере!" });
 });
