@@ -94,7 +94,10 @@ var main = function (toDoObjects) {
 					// разделение в соответствии с запятыми
 					tags = $tagInput.val().split(","); 
 					toDoObjects.push({"description":description, "tags":tags}); 
-					// обновление toDos
+					$.post("todos",{},function(response){
+					console.log("Мы отправили данные и получили ответ от сервера");
+					console.log(response);
+					});
 					toDos = toDoObjects.map(function (toDo) {
 						return toDo.description;
 					});
