@@ -1,9 +1,23 @@
 {
-    "name": "Amazeriffic",
+    "name": "amazeriffic",
     "version": "1.0.0",
     "description": "",
+    "main": "server.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/RomanovaAnV/Amazeriffic.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/RomanovaAnV/Amazeriffic/issues"
+    },
+    "homepage": "https://github.com/RomanovaAnV/Amazeriffic#readme",
     "dependencies": {
-        "express": "^4.17.1",
-        "mongoose": "5.9.9"
+      "express": "^4.17.1",
+      "mongoose": "5.9.9"
     }
-}
+  }
